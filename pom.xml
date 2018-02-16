@@ -1,11 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net-daniv</groupId>
-    <artifactId>selenium-boot-project</artifactId>
+    <artifactId>selenium-boot-framework</artifactId>
+    <name>Selenium Boot Framework</name>
     <version>1.0-SNAPSHOT</version>
-    </project>
+    <packaging>pom</packaging>
+    <description>Selenium-Boot project pom, managing plugins and dependencies for Selenium-boot projects</description>
+
+
+    <prerequisites>
+        <maven>3.5</maven>
+    </prerequisites>
+
+    <inceptionYear>2017</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/daniv/selenium-boot</url>
+        <connection>scm:git:git://github.com/daniv/selenium-boot.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/selenium-projects/selenium-boot.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/daniv/selenium-boot/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>daniv</id>
+            <name>Dani Vainstein</name>
+            <email>solkmarkn@gmail.com</email>
+            <organization>freelancer</organization>
+            <roles>
+                <role>Sr. Java Automation Consultant</role>
+            </roles>
+            <timezone>Colombia Time (COT) -0500 UTC</timezone>
+            <properties>
+                <linkedinId>https://www.linkedin.com/in/dani-vainstein</linkedinId>
+                <skypeId>dani.vainstein</skypeId>
+                <location>Medellin, Colombia</location>
+            </properties>
+        </developer>
+    </developers>
+
+    <properties>
+        <main.basedir>${basedir}</main.basedir>
+    </properties>
+
+    <repositories>
+
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>spring-libs-release</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/3rdparty/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+
+    </repositories>
+
+    <pluginRepositories>
+
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/3rdparty/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+    
+</project>
     
