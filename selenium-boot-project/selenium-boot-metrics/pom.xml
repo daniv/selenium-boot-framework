@@ -4,15 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>selenium-boot-parent</artifactId>
-        <groupId>net-daniv</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>net.daniv</groupId>
+        <version>1.1-SNAPSHOT</version>
         <relativePath>../selenium-boot-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>selenium-boot-metrics</artifactId>
-    <name>Selenium-Boot Utils</name>
-    <description>Service layer that provides utilites to framework modules.</description>
+    <name>Selenium-Boot Metrics</name>
 
 
 </project>
