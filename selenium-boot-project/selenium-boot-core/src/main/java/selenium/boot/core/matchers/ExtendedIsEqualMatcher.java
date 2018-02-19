@@ -1,15 +1,15 @@
 package selenium.boot.core.matchers;
 
 
+import org.apache.commons.text.similarity.LevenshteinDetailedDistance;
+import org.apache.commons.text.similarity.LevenshteinResults;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.core.IsEqual;
 import org.springframework.core.ResolvableType;
-import selenium.boot.framework.matchers.TextDiff.Diff;
-import selenium.boot.utils.StringUtils;
-
-import java.util.LinkedList;
+import org.springframework.lang.Nullable;
+import selenium.boot.utils.text.StringUtils;
 
 
 
@@ -29,6 +29,8 @@ class ExtendedIsEqualMatcher<T> extends IsEqual<T>
     //---------------------------------------------------------------------
 
     private final Object expectedValue;
+
+    private static final LevenshteinDetailedDistance detailedDistance = new LevenshteinDetailedDistance();
 
     private ExtendedIsEqualMatcher( T equalArg )
     {
@@ -52,16 +54,12 @@ class ExtendedIsEqualMatcher<T> extends IsEqual<T>
             }
             else
             {
-                TextDiff textDiff = new TextDiff();
-
                 mismatchDescription.appendText( "was " ).appendValue( item );
-                LinkedList<Diff> differences = textDiff.diff_main( item.toString(), expectedValue.toString() );
-                differences.forEach( difference -> mismatchDescription
-                                                           .appendText( rightPad( "difference" ) )
-                                                           .appendText( difference.toString() ) );
-
-                int levenshtein = textDiff.getLevenshteinDistance( differences );
-                mismatchDescription.appendText( rightPad( "levenshtein dist" ) ).appendValue( levenshtein );
+                LevenshteinResults results = detailedDistance.apply( item.toString(), expectedValue.toString() );
+                mismatchDescription.appendText( rightPad( "deletes" ) ).appendValue( results.getDeleteCount() );
+                mismatchDescription.appendText( rightPad( "inserts" ) ).appendValue( results.getInsertCount() );
+                mismatchDescription.appendText( rightPad( "substitutions" ) ).appendValue( results.getSubstituteCount() );
+                mismatchDescription.appendText( rightPad( "Levenshtein distance" ) ).appendValue( results.getDistance() );
             }
         }
         else
@@ -78,7 +76,7 @@ class ExtendedIsEqualMatcher<T> extends IsEqual<T>
 
     private String rightPad( String desc )
     {
-        String out =  StringUtils.padEnd( desc , 16, ' ' );
+        String out =  StringUtils.padEnd( desc , 18, ' ' );
         return "\n" +  out + ": ";
     }
 

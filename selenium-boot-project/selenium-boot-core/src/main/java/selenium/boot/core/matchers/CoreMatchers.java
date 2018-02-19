@@ -7,9 +7,6 @@ import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.core.*;
 import org.hamcrest.core.CombinableMatcher.CombinableBothMatcher;
 import org.hamcrest.core.CombinableMatcher.CombinableEitherMatcher;
-import org.hamcrest.number.BigDecimalCloseTo;
-import org.hamcrest.number.IsCloseTo;
-import org.hamcrest.number.OrderingComparison;
 import org.springframework.lang.Nullable;
 
 import java.math.BigDecimal;
