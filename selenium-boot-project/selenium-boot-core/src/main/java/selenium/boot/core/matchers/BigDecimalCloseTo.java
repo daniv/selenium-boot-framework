@@ -43,7 +43,7 @@ class BigDecimalCloseTo extends TypeSafeMatcher<BigDecimal>
      * @param error   the delta (+/-) within which matches will be allowed
      */
     @Factory
-    public static Matcher<BigDecimal> closeTo( BigDecimal operand, BigDecimal error )
+    static Matcher<BigDecimal> closeTo( BigDecimal operand, BigDecimal error )
     {
         return new BigDecimalCloseTo( operand, error );
     }
