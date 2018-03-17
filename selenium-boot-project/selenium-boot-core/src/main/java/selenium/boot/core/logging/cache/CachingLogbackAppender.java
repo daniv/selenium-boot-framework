@@ -51,6 +51,7 @@ public class CachingLogbackAppender extends UnsynchronizedAppenderBase<ILoggingE
                 return;
             }
 
+            event.prepareForDeferredProcessing();
             cache.put( event );
         }
     }
@@ -64,7 +65,6 @@ public class CachingLogbackAppender extends UnsynchronizedAppenderBase<ILoggingE
         }
 
         cache = cacheMode.createCache();
-
         super.start();
     }
 
